@@ -8,10 +8,24 @@
 //     foo(...arr);
 //     document.write(`<h1 style="text-align:center">Hello Webpack</h1><h2 style="margin-top:10px;text-align: center;">${sum}</h2>`);
 // }
+require('./index.css');
+
 const React = require('react');
 const ReactDOM = require('react-dom');
 
+function htmlDemo(props){
+    return (
+        <div>
+            <h1>Hello Webpack!</h1>
+            <h2>现在的时间是{props.date.toLocaleTimeString()}!</h2>
+        </div>
+    );
+}
+
 ReactDOM.render(
-    <h1>Hello, webpack!</h1>,
+    <div>
+    <h1>Hello Webpack!</h1>
+    <h2>现在的时间是{new Date().toLocaleTimeString()}!</h2>
+</div>,
     document.querySelector('#wrapper')
 );

@@ -18,20 +18,11 @@ const config = {
                     presets: ['es2015','react']
                 }
             },
-            // { // css
-            //     test: /\.css$/,
-            //     use: use[{
-            //         loader: 'css-loader',
-            //         options: {
-            //             modules: true
-            //         }
-            //     },{
-            //         loader: 'postcss-loader',
-            //         options: {
-            //             modules: true
-            //         }
-            //     }]
-            // },{ //html
+            { // css
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            //{ //html
             //     test: /\.html$/,
             //     use: {
             //         loader: 'unerscore-template-loader'
