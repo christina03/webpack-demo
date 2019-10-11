@@ -1,1 +1,0 @@
-document.write('<h1 style="text-align:center">Hello Webpack</h1>')

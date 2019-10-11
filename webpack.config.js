@@ -1,59 +1,63 @@
 const path = require('path');
 
 const config = {
-    entry: './src/index.js',
+    entry: './src/index.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
         filename: '[name].js',
         chunkFilename: 'chunk/[name].js'
     },
-    // module: {
-    //     rules: [
-    //         { // js
-    //             test: /\.js$/,
-    //             exclude: /node_modules/,
-    //             loader: 'babel-loader',
-    //             options: {
-    //                 modules: true
-    //             }
-    //         },{ // css
-    //             test: /\.css$/,
-    //             use: use[{
-    //                 loader: 'css-loader',
-    //                 options: {
-    //                     modules: true
-    //                 }
-    //             },{
-    //                 loader: 'postcss-loader',
-    //                 options: {
-    //                     modules: true
-    //                 }
-    //             }]
-    //         },{ //html
-    //             test: /\.html$/,
-    //             use: {
-    //                 loader: 'unerscore-template-loader'
-    //             }
-    //         },{ // img
-    //             test: /\.(jpe?g|png|gif|svg)(\?\S*)?$/i,
-    //             use: [{
-    //                 loader: 'url-loader',
-    //                 options: {
-    //                     limit: 8 * 1024,
-    //                     name: 'res/[name]-[hash:7].[ext]'
-    //                 }
-    //             }]
-    //         },{
-    //             test: /\.(otf|eot|ttf|woff2?)(\?\S*)?$/i
-    //         }
-    //     ]
-    // },
+    module: {
+        rules: [
+            { // js
+                test: /\.jsx$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['es2015','react']
+                }
+            },
+            // { // css
+            //     test: /\.css$/,
+            //     use: use[{
+            //         loader: 'css-loader',
+            //         options: {
+            //             modules: true
+            //         }
+            //     },{
+            //         loader: 'postcss-loader',
+            //         options: {
+            //             modules: true
+            //         }
+            //     }]
+            // },{ //html
+            //     test: /\.html$/,
+            //     use: {
+            //         loader: 'unerscore-template-loader'
+            //     }
+            // },{ // img
+            //     test: /\.(jpe?g|png|gif|svg)(\?\S*)?$/i,
+            //     use: [{
+            //         loader: 'url-loader',
+            //         options: {
+            //             limit: 8 * 1024,
+            //             name: 'res/[name]-[hash:7].[ext]'
+            //         }
+            //     }]
+            // },{
+            //     test: /\.(otf|eot|ttf|woff2?)(\?\S*)?$/i
+            // }
+        ]
+    },
+    // plugin: [
+    
+    // ],
     // resolve: {
-    //     modules: [ // 配置modules来提升webpack的构建速度
-    //         'src',
-    //         'node_modules'
-    //     ],
+    //     // modules: [ // 配置modules来提升webpack的构建速度
+    //     //     'src',
+    //     //     'node_modules'
+    //     // ],
     //     alias: {
     //         // 设置这个 alias 便于直接从 src 目录引用文件, 放心不会与引用 scope 包时冲突
     //         // 例如: import c from '@/a/b/c.js';
