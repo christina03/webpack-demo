@@ -27,16 +27,18 @@ const config = {
             //     use: {
             //         loader: 'unerscore-template-loader'
             //     }
-            // },{ // img
-            //     test: /\.(jpe?g|png|gif|svg)(\?\S*)?$/i,
-            //     use: [{
-            //         loader: 'url-loader',
-            //         options: {
-            //             limit: 8 * 1024,
-            //             name: 'res/[name]-[hash:7].[ext]'
-            //         }
-            //     }]
-            // },{
+            // },
+            { // img
+                test: /\.(jpe?g|png|gif|svg)(\?\S*)?$/i,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8 * 1024,
+                        name: 'res/[name]-[hash:7].[ext]'
+                    }
+                }]
+            },
+            // {
             //     test: /\.(otf|eot|ttf|woff2?)(\?\S*)?$/i
             // }
         ]

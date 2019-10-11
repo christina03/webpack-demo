@@ -13,19 +13,11 @@ require('./index.css');
 const React = require('react');
 const ReactDOM = require('react-dom');
 
-function htmlDemo(props){
-    return (
-        <div>
-            <h1>Hello Webpack!</h1>
-            <h2>现在的时间是{props.date.toLocaleTimeString()}!</h2>
-        </div>
-    );
-}
-
 ReactDOM.render(
     <div>
     <h1>Hello Webpack!</h1>
     <h2>现在的时间是{new Date().toLocaleTimeString()}!</h2>
+    <img src='./res/bg.jpg'/>
 </div>,
     document.querySelector('#wrapper')
 );
