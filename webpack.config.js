@@ -69,6 +69,9 @@ const config = {
           // include all types of chunks
           chunks: 'all'
         }
+    },
+    externals: {
+        'content': 'a.js'
     }
     // resolve: {
     //     // modules: [ // 配置modules来提升webpack的构建速度
