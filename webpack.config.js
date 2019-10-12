@@ -71,7 +71,7 @@ const config = {
         }
     },
     externals: {
-        'content': 'a.js'
+        data: 'content'
     }
     // resolve: {
     //     // modules: [ // 配置modules来提升webpack的构建速度
