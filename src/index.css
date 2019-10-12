@@ -5,3 +5,11 @@ body {
 h1,h2,img{
     text-align: center;
 }
+
+.h1{
+    color: blue;
+}
+
+:global(.h2){
+    color: red;
+}

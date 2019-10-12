@@ -1,10 +1,12 @@
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     entry: './src/index.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/',
+        publicPath: './',
         filename: '[name].js',
         chunkFilename: 'chunk/[name].js'
     },
@@ -20,7 +22,14 @@ const config = {
             },
             { // css
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [{
+                    loader: 'style-loader'
+                },{
+                    loader: 'css-loader',
+                    options: {
+                        modules: true
+                    }
+                }]
             },
             //{ //html
             //     test: /\.html$/,
@@ -29,12 +38,12 @@ const config = {
             //     }
             // },
             { // img
-                test: /\.(jpe?g|png|gif|svg)(\?\S*)?$/i,
+                test: /\.(jpg|jpeg|png|gif|svg)$/,
                 use: [{
                     loader: 'url-loader',
                     options: {
                         limit: 8 * 1024,
-                        name: 'res/[name]-[hash:7].[ext]'
+                        name: 'res/[name].[ext]'
                     }
                 }]
             },
@@ -43,9 +52,14 @@ const config = {
             // }
         ]
     },
-    // plugin: [
-    
-    // ],
+    plugins: [
+        new UglifyJsPlugin(),
+        new HtmlWebpackPlugin({
+            // title: ''
+            template: './src/index.html',
+            filename: 'main.html'
+        })
+    ],
     // resolve: {
     //     // modules: [ // 配置modules来提升webpack的构建速度
     //     //     'src',
