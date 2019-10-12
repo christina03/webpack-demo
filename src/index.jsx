@@ -23,10 +23,10 @@ const content = require('./a.js');
 
 ReactDOM.render(
     <div>
-    <h1 className={style.h1}>Hello Webpack!</h1>
+    <h1 className={style.h1}>Hello Webpack1!</h1>
     <h2>{content}</h2>
     <h2 className="h2">现在的时间是{new Date().toLocaleTimeString()}!</h2>
     <img src='./res/bg.jpg'/>
 </div>,
-    document.querySelector('#wrapper')
+    document.querySelector('#wrapper1')
 );

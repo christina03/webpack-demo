@@ -1,9 +1,13 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const config = {
-    entry: './src/index.jsx',
+    entry: {
+        bundle1: './src/index.jsx',
+        bundle2: './src/index2.jsx'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: './',
@@ -60,6 +64,12 @@ const config = {
             filename: 'main.html'
         })
     ],
+    optimization: {
+        splitChunks: {
+          // include all types of chunks
+          chunks: 'all'
+        }
+    }
     // resolve: {
     //     // modules: [ // 配置modules来提升webpack的构建速度
     //     //     'src',
